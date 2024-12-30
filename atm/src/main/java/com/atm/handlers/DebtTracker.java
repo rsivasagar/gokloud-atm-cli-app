@@ -1,4 +1,4 @@
-package com.atm.handler;
+package com.atm.handlers;
 
 import com.atm.dto.Bank;
 

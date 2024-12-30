@@ -1,8 +1,8 @@
 package com.atm.controller;
 
 import com.atm.dto.Bank;
-import com.atm.handler.DebtTracker;
-import com.atm.handler.CommandProcessor;
+import com.atm.handlers.DebtTracker;
+import com.atm.handlers.CommandProcessor;
 
 import java.util.Scanner;
 
