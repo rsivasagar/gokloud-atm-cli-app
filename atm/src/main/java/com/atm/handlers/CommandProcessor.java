@@ -25,9 +25,6 @@ public class CommandProcessor {
         initializeTransactions();
     }
 
-    /**
-     * Initializes the transaction strategies for each command.
-     */
     private void initializeTransactions() {
         transactions.put(LOGIN, new LoginTransaction());
         transactions.put(DEPOSIT, new DepositTransaction());
@@ -36,11 +33,6 @@ public class CommandProcessor {
         transactions.put(LOGOUT, new LogoutTransaction());
     }
 
-    /**
-     * Processes the input command by delegating to the appropriate transaction strategy.
-     *
-     * @param input The raw input command string.
-     */
     public void process(String input) {
         String[] parts = input.trim().split("\\s+");
         if (parts.length == 0) {
@@ -58,10 +50,6 @@ public class CommandProcessor {
         }
     }
 
-    // ------------------------------
-    // Getters and Setters
-    // ------------------------------
-
     public String getLoggedInCustomer() {
         return loggedInCustomer;
     }
@@ -70,15 +58,6 @@ public class CommandProcessor {
         this.loggedInCustomer = loggedInCustomer;
     }
 
-    // ------------------------------
-    // Session and Utility Methods
-    // ------------------------------
-
-    /**
-     * Checks if no user is currently logged in.
-     *
-     * @return True if no user is logged in; otherwise, false.
-     */
     public boolean isSessionActive() {
         if (loggedInCustomer == null) {
             System.out.println("No customer is currently logged in.");
@@ -87,11 +66,6 @@ public class CommandProcessor {
         return false;
     }
 
-    /**
-     * Prints the balance and debt details of the specified customer.
-     *
-     * @param customerName The name of the customer.
-     */
     public void printCustomerBalanceDetails(String customerName) {
         int balance = bank.getBalance(customerName);
         System.out.println("Your balance is $" + balance);
@@ -102,6 +76,6 @@ public class CommandProcessor {
         // Print how much logged-in customer owes to others
         debtTracker.printCustomerDebts(customerName);
 
-        System.out.println(); // For spacing
+        System.out.println();
     }
 }
